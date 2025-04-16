@@ -10,7 +10,9 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            /WEB-INF/spring/root-context.xml
+            /WEB-INF/spring/appServlet/dao-context.xml
+            /WEB-INF/spring/appServlet/service-context.xml
+            <!--appServlet에 xml만들고 여기에 추가-->
         </param-value>
     </context-param>
 
@@ -25,7 +27,9 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+            <param-value>
+                /WEB-INF/spring/appServlet/servlet-context.xml
+            </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
