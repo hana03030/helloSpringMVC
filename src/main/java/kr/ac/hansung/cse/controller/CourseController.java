@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class CourseController {
     @PostMapping("/docreatecourse")
     public String docreatecourse(Model model, @Valid Course course, BindingResult result) {
         if(result.hasErrors()) {
-            System.out.println(" == 데이터가 존재하지 않음 ==");
+            System.out.println(" == 오류 검증 ==");
 
             List<ObjectError> errors = result.getAllErrors();
 
@@ -63,5 +64,29 @@ public class CourseController {
         model.addAttribute("id_courses", courses);
 
         return "showcreated";
+    }
+
+    @GetMapping("/creditsummary")
+    public String showCreditSummary(@RequestParam(value = "year", required = false) Integer year,
+                                    @RequestParam(value = "semester", required = false) Integer semester,
+                                    Model model) {
+
+        // 학기별 이수 학점 요약
+        List<Object[]> summary = courseService.getCreditSummaryBySemester();
+        model.addAttribute("creditSummary", summary);
+
+        // 총계 계산
+        int totalCredits = summary.stream()
+                .mapToInt(row -> ((Long) row[2]).intValue())
+                .sum();
+        model.addAttribute("totalCredits", totalCredits);
+
+        // 상세보기 선택한 경우
+        if (year != null && semester != null) {
+            List<Course> details = courseService.getCoursesBySemester(year, semester);
+            model.addAttribute("courseDetails", details);
+        }
+
+        return "creditsummary";
     }
 }

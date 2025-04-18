@@ -9,11 +9,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>수강 신청 조회</title>
 </head>
 <body>
+<h2>수강 신청 조회</h2>
 <table border="1">
     <tr>
+        <th>년도</th>
+        <th>학기</th>
         <th>교과코드</th>
         <th>교과목명</th>
         <th>교과구분</th>
@@ -22,6 +25,8 @@
     </tr>
     <c:forEach var="course" items="${id_courses}">
         <tr>
+            <td>${course.year}</td>
+            <td>${course.semester}</td>
             <td>${course.course_code}</td>
             <td>${course.course_name}</td>
             <td>${course.category}</td>

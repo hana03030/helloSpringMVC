@@ -9,39 +9,40 @@
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>수강 신청하기</title>
 </head>
 <body>
+<h2>수강 신청하기</h2>
 <sf:form method="post" action="${pageContext.request.contextPath}/docreatecourse" modelAttribute="course">
     <table>
         <tr>
             <td>교과코드: </td>
             <td><sf:input class="control" type="text" path="course_code"/> <br/>
-                <sf:errors path="course_code" class="error"/>
+                <sf:errors path="course_code"/>
             </td>
         </tr>
         <tr>
             <td>교과목명: </td>
             <td><sf:input class="control" type="text" path="course_name"/> <br/>
-                <sf:errors path="course_name" class="error"/>
+                <sf:errors path="course_name"/>
             </td>
         </tr>
         <tr>
             <td>교과구분: </td>
             <td><sf:input class="control" type="text" path="category"/> <br/>
-                <sf:errors path="category" class="error"/>
+                <sf:errors path="category"/>
             </td>
         </tr>
         <tr>
             <td>담당교수: </td>
             <td><sf:input class="control" type="text" path="professor"/> <br/>
-                <sf:errors path="professor" class="error"/>
+                <sf:errors path="professor"/>
             </td>
         </tr>
         <tr>
             <td>학점: </td>
             <td><sf:input class="control" type="text" path="credit"/> <br/>
-                <sf:errors path="credit" class="error"/>
+                <sf:errors path="credit"/>
             </td>
         </tr>
         <tr>

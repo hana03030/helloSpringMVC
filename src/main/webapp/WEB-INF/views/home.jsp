@@ -1,21 +1,55 @@
 <%--
   Created by IntelliJ IDEA.
-  User: nykim
-  Date: 2022/12/13
-  Time: 12:55 오전
+  User: jhl03
+  Date: 25. 4. 19.
+  Time: 오전 12:29
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>$Title$</title>
+  <title>학사 정보 시스템</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .menu-button {
+      display: inline-block;
+      width: 300px;
+      padding: 20px;
+      margin: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: background-color 0.3s;
+    }
+
+    .menu-button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-<p> <a href="${pageContext.request.contextPath}/offers"> Show current offers</a></p>
-<p> <a href="${pageContext.request.contextPath}/createoffer"> Add a new offer</a></p>
 
-<p> <a href="${pageContext.request.contextPath}/courses"> 수강내역보기</a></p>
-<p> <a href="${pageContext.request.contextPath}/createcourse"> 수강신청하기</a></p>
-<p> <a href="${pageContext.request.contextPath}/showcreated"> 수강신청조회</a></p>
+<h1>📘 학사 정보 시스템</h1>
+
+<a href="${pageContext.request.contextPath}/creditsummary" class="menu-button">
+  학기별 이수 학점 조회
+</a><br>
+
+<a href="${pageContext.request.contextPath}/createcourse" class="menu-button">
+  수강 신청하기
+</a><br>
+
+<a href="${pageContext.request.contextPath}/showcreated" class="menu-button">
+  수강 신청 조회
+</a>
+
 </body>
 </html>

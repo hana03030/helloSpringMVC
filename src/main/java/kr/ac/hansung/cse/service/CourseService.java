@@ -24,4 +24,9 @@ public class CourseService {
     public List<Course> getCoursesBySemester(int year, int semester) {
         return courseDao.getCoursesBySemester(year, semester);
     }
+
+    public List<Object[]> getCreditSummaryBySemester() {
+        return courseDao.getCreditSummaryBySemester();
+    }
+
 }

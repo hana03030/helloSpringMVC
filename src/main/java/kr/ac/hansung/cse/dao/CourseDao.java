@@ -36,4 +36,15 @@ public class CourseDao {
                 .setParameter("semester", semester)
                 .getResultList();
     }
+
+    // 학기별 이수 학점 요약
+    public List<Object[]> getCreditSummaryBySemester() {
+        String jpql = "SELECT c.year, c.semester, SUM(c.credit) " +
+                "FROM Course c " +
+                "WHERE c.year < 2025 OR (c.year = 2024 AND c.semester <= 2) " + // 2024년 2학기까지 포함
+                "GROUP BY c.year, c.semester ORDER BY c.year, c.semester";
+        return entityManager.createQuery(jpql, Object[].class).getResultList();
+    }
+
+
 }

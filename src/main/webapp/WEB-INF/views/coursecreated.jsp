@@ -12,6 +12,6 @@
 </head>
 <body>
 ${course.course_name} 가 추가되었습니다. 감사합니다. <br/>
-<a href="${pageContext.request.contextPath}/courses"> Click here to view current courses  </a>
+<a href="${pageContext.request.contextPath}/"> 홈으로 돌아가기  </a>
 </body>
 </html>
