@@ -25,4 +25,15 @@ public class CourseDao {
                 .getResultList();
     }
 
+    public void insert(Course course) {
+        entityManager.persist(course);
+    }
+
+    public List<Course> getCoursesBySemester(int year, int semester) {
+        String jpql = "SELECT c FROM Course c WHERE c.year = :year AND c.semester = :semester";
+        return entityManager.createQuery(jpql, Course.class)
+                .setParameter("year", year)
+                .setParameter("semester", semester)
+                .getResultList();
+    }
 }

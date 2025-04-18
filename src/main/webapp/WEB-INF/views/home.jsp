@@ -15,5 +15,7 @@
 <p> <a href="${pageContext.request.contextPath}/createoffer"> Add a new offer</a></p>
 
 <p> <a href="${pageContext.request.contextPath}/courses"> 수강내역보기</a></p>
+<p> <a href="${pageContext.request.contextPath}/createcourse"> 수강신청하기</a></p>
+<p> <a href="${pageContext.request.contextPath}/showcreated"> 수강신청조회</a></p>
 </body>
 </html>

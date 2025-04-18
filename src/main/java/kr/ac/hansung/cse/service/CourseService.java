@@ -17,4 +17,11 @@ public class CourseService {
         return courseDao.getCourses();
     }
 
+    public void insertCourse(Course course) {
+        courseDao.insert(course);
+    }
+
+    public List<Course> getCoursesBySemester(int year, int semester) {
+        return courseDao.getCoursesBySemester(year, semester);
+    }
 }
